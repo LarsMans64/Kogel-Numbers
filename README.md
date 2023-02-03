@@ -1,17 +1,21 @@
 # Kogel Numbers
 
-This is a little script for finding 'Kogel numbers'.
+This is a little script for finding Kogel numbers.
 
-A Kogel number is a number which value is the same as the index of its place in another number like π.  
-For example, in the number 67042, 4 is a Kogel number because it's the fourth digit.
+### A what?
 
-The output will look like this:
-```commandline
-Shift : Number
-1 : 1
-1 : 16
-2 : 45
-1 : 61
-1 : 75
+A Kogel number is a number which value indicates its own place in another number like π.  
+For example, in the number 2.67042, 4 is a Kogel number because it's the fourth digit.
+
+### Output
+
+An output of the script could look like this:
 ```
-The first number 
+Digit : Number
+    1 : 1
+    1 : 16
+    2 : 45
+    1 : 61
+    1 : 75
+```
+The first number indicates which digit of the second number corresponds with the place. For example, with `2 : 45`, it's the second digit of 45. That means that the 5 is on the 45th position.
