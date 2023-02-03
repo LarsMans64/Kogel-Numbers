@@ -1,33 +1,28 @@
-import sys
 import time
 
 
 def start():
-    file_name = input("File: ")
+    file_name = "files/" + input("\nFile: ")
     try:
-        file = open("files/" + file_name + ".txt")
+        file = open(file_name + ".txt")
     except FileNotFoundError:
         file = open(file_name)
     count = int(input("How many digits? (0 = all) "))
-    progress_bar = bool_input("Progress bar?")
     if count == 0: count = len(file.read())
-    print()
-    if not progress_bar: print("Digit : Number")
+    print("\nDigit : Number")
     start_time = time.time()
-    main(file, count, progress_bar)
+    main(file, count)
     end_time = time.time()
-    if progress_bar:
-        sys.stdout.write(f"\r[{'#'*30}] {count:,}/{count:,}")
-        f = open("output.txt")
-        print("\n\nDigit : Number\n" + f.read())
-    else: print()
-    print(f"Checked {count:,} digits in {file.name} in {round(end_time - start_time, 2)} seconds.\n")
+    print("\r ")
+    print(f"[{'#'*30}] {count:,}/{count:,}")
+    file_name = file.name.replace('files/', '', 1)
+    total_time = round(end_time - start_time, 2)
+    print(f"\nChecked {count:,} digits in {file_name} in {total_time} seconds.")
+    file.close()
     start()
 
 
-def main(file, count, progress_bar):
-    if progress_bar:
-        f = open("output.txt", "w")
+def main(file, count):
     index = 0
     while index <= count:  # Check all digits
         length = len(str(index))
@@ -41,31 +36,23 @@ def main(file, count, progress_bar):
                 if int(file.read(1)) != int(str(index2)[digit]):
                     break
                 if digit + 1 == length:
-                    if progress_bar:
-                        f.write(f"    {shift + 1} : {index2}\n")
-                    else:
-                        print(f"    {shift + 1} : {index2}")
+                    print(f"\r    {shift + 1} : {index2}")
                 digit += 1
             shift += 1
-        if progress_bar:
-            p = "#" * int(index / count * 30)
-            sys.stdout.write(f"\r[{p}{'.' * (30 - len(p))}] {index:,}/{count:,}")
+        update_progress_bar(index, count)
         index += 1
     return
 
 
-def bool_input(text):
-    if input(text + " y/n ").lower() == "y":
-        return True
-    else:
-        return False
+def update_progress_bar(value, total):
+    a = "#" * int(value / total * 30)
+    b = "." * (30 - len(a))
+    print(f"\r[{a + b}] {value:,}/{total:,}", end="")
 
 
 print("""
 Kogel Numbers
 -------------
 Put your files in the /files/ folder.
-The file can only contain numbers and nothing else.
-Disable the progress bar to get live answers.
-""")
+The file can only contain numbers and nothing else.""")
 start()
