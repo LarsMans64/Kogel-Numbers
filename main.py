@@ -5,7 +5,7 @@ import time
 def start():
     file_name = input("File: ")
     try:
-        file = open(file_name + ".txt")
+        file = open("files/" + file_name + ".txt")
     except FileNotFoundError:
         file = open(file_name)
     count = int(input("How many digits? (0 = all) "))
@@ -64,8 +64,8 @@ def bool_input(text):
 print("""
 Kogel Numbers
 -------------
-Put your files in the same folder as the script.
-The file must contain only numbers and nothing else.
+Put your files in the /files/ folder.
+The file can only contain numbers and nothing else.
 Disable the progress bar to get live answers.
 """)
 start()
