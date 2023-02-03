@@ -6,7 +6,7 @@ To use a file, put it in the `/files/` folder. The file can only contain numbers
 
 ### A what?
 
-A Kogel number is a number which value indicates its own place in another number like π. For example, in the number 2.67042, 4 is a Kogel number because it's the fourth digit.
+A Kogel number is a number which value indicates its own position in another number like π. For example, in the number 2.67042, 4 is a Kogel number because it's the fourth digit.
 
 ### Output
 
