@@ -13,7 +13,7 @@ def start():
     start_time = time.time()
     main(file, count)
     end_time = time.time()
-    print("\r ")
+    print("\r" + " " * 33, " " * 2 * len(f"{count:,}"))
     print(f"[{'#'*30}] {count:,}/{count:,}")
     file_name = file.name.replace('files/', '', 1)
     total_time = round(end_time - start_time, 2)
@@ -36,7 +36,8 @@ def main(file, count):
                 if int(file.read(1)) != int(str(index2)[digit]):
                     break
                 if digit + 1 == length:
-                    print(f"\r    {shift + 1} : {index2}")
+                    print("\r" + " " * 33, " " * 2 * len(f"{count:,}"), end="\r")
+                    print(f"    {shift + 1} : {index2}")
                 digit += 1
             shift += 1
         update_progress_bar(index, count)
