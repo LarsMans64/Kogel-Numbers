@@ -3,6 +3,8 @@ import time
 
 def start():
     file_name = "files/" + input("\nFile: ")
+    if file_name.lower() == "stop":
+        exit()
     try:
         file = open(file_name + ".txt")
     except FileNotFoundError:
@@ -56,5 +58,6 @@ print("""
 Kogel Numbers
 -------------
 Put your files in the /files/ folder.
-The file can only contain numbers and nothing else.""")
+The file can only contain numbers and nothing else.
+Type 'stop' to exit.""")
 start()
