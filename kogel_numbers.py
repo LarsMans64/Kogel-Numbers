@@ -13,11 +13,12 @@ def start():
     start_time = time.time()
     main(file, count)
     end_time = time.time()
-    print("\r" + " " * 33, " " * 2 * len(f"{count:,}"))
-    print(f"[{'#'*30}] {count:,}/{count:,}")
-    file_name = file.name.replace('files/', '', 1)
+    count_f = f"{count:,}"
+    print("\r" + " " * 33, " " * 2 * len(count_f))
+    print(f"[{'#'*30}] {count_f}/{count_f}")
+    file_name = file.name.replace("files/", "", 1)
     total_time = round(end_time - start_time, 2)
-    print(f"\nChecked {count:,} digits in {file_name} in {total_time} seconds.")
+    print(f"\nChecked {count_f} digits in {file_name} in {total_time} seconds.")
     file.close()
     start()
 
