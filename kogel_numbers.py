@@ -35,8 +35,10 @@ def start():
 
 def main(file, count):
     index = 0
+    bar_number = count // 531
     while index <= count:  # Check all digits in file
-        update_progress_bar(index, count)
+        if index % bar_number == 0:
+            update_progress_bar(index, count)
         length = len(str(index))
         if index + length >= count:
             break
@@ -59,8 +61,10 @@ def main(file, count):
 
 def main_filtered(file, count, filter_digit):
     index = 0
+    bar_number = count // 531
     while index <= count:
-        update_progress_bar(index, count)
+        if index % bar_number == 0:
+            update_progress_bar(index, count)
         length = len(str(index)) - 1
         if filter_digit == -2: shift = length
         else: shift = filter_digit
