@@ -20,3 +20,15 @@ Digit : Number
     1 : 75
 ```
 The first number indicates which digit of the second number corresponds with the place. For example, with `2 : 45`, it's the second digit of 45. That means that the 5 is on the 45th position.
+
+### Known Kogel Numbers in π
+
+All currently known (strong) Kogel Numbers in π are, in order:
+- 1
+- 315
+- 360
+- 384
+- 1045794
+- 85225409
+- 98384497
+- 98849341
